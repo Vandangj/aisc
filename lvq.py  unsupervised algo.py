@@ -19,9 +19,9 @@ a=0.1
 input=[[0,0,0,1], [1,1,0,0], [0,1,1,0]]
 target=[2,1,1]
 
-d1=0
-d2=0
 for i in range(len(target)):
+    d1=0
+    d2=0
     for j in range(len(w1)):
         d1+= (w1[j] - input[i][j]) ** 2
         d2+= (w2[j] - input[i][j]) ** 2
@@ -34,13 +34,13 @@ for i in range(len(target)):
         winner_idx = 2
 
     if winner_idx == target[i]:
-        for j in range(len(weights)):
-            weights[j] += round(a * (input[i][j] - weights[j]), 1)
+        for k in range(len(weights)):
+            weights[k] += round(a * (input[i][k] - weights[k]), 1)
     else:
-        for j in range(len(weights)):
-            weights[j] -= round(a * (input[i][j] - weights[j]), 1)
+        for k in range(len(weights)):
+            weights[k] -= round(a * (input[i][k] - weights[k]), 1)
 
-    print(f"input: {input[i]}, target: {target[i]}, updated weights: {weights} ")
+    print(f"input: {input[i]},winner: {winner_idx}, target: {target[i]}, updated weights: {weights} ")
 
 // code ends here 
 
